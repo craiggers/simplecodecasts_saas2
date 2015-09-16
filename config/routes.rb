@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  
+  # About address points to "pages" controller and the "about" action.
+  get '/about' => 'pages#about'
+  # Home page needs to route to "pages" controller and the "home" action.
+  root 'pages#home'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
