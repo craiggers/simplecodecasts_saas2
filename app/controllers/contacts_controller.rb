@@ -8,6 +8,13 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     # When we save the contacts
     if @contact.save
+      # Assign variables using Hash syntax for Query String Parameters
+      name = params[:contact][:name]
+      email = params[:contact][:email]
+      body = params[:contact][:comments]
+      # Call method from mailer file
+      ContactMailer.contact_email(name, email, body).deliver
+      
       # Show Flash notice
       flash[:success] = 'Message sent.'
       # Redirect to the same new contact url
