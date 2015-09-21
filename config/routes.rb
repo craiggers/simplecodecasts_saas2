@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # Generate more urls related to contacts (contacts, new_contact, edit_contact, etc)
   resources :contacts
   # About address points to "pages" controller and the "about" action.
