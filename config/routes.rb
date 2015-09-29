@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # Use custom controller/action for User Registrations
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  # 
+  # Nested routes for user Profiles
   resources :users do
     resource :profile
   end
