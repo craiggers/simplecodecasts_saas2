@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   # Use custom controller/action for User Registrations
   devise_for :users, controllers: { registrations: 'users/registrations' }
+  # 
+  resources :users do
+    resource :profile
+  end
   # Generate more urls related to contacts (contacts, new_contact, edit_contact, etc)
   resources :contacts
   # About address points to "pages" controller and the "about" action.
