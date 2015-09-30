@@ -4,8 +4,31 @@ class ProfilesController < ApplicationController
     # Find out who is logged in using params Hash (dictionary).
     @user = User.find( params[:user_id] )
     # Demo how to access Query String Parameter added to Path.
-    @variable = params[:hello]
+    #@variable = params[:hello]
     #
     @profile = @user.build_profile
   end
+  def create
+    # Actually save the User's info typed into our form.
+    # Find out who is logged in using params Hash (dictionary).
+    @user = User.find( params[:user_id] )
+    # Pass in all data entered into our form fields.
+    @profile = @user.build_profile(profile_params)
+    
+    if @profile.save
+      flash[:success] = "Profile Updated!"
+      # Direct to User's "show" page.
+      redirect_to user_path( params[:user_id] )
+    else
+      # Render the "new" action again.
+      render action: :new
+    end
+    
+  end
+  
+  private
+    def profile_params
+      # Whitelist all data entered into our form fields.
+      params.require(:profile).permit(:first_name, :last_name, :job_title, :phone_number, :contact_email, :description)
+    end
 end
