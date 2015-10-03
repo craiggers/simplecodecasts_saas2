@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
     # Demo how to access Query String Parameter added to Path.
     #@variable = params[:hello]
     #
-    @profile = @user.build_profile
+    @profile = Profile.new
   end
   def create
     # Actually save the User's info typed into our form.
