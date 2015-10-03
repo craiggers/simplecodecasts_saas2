@@ -8,6 +8,7 @@ class ProfilesController < ApplicationController
     #
     @profile = Profile.new
   end
+  
   def create
     # Actually save the User's info typed into our form.
     # Find out who is logged in using params Hash (dictionary).
@@ -24,6 +25,13 @@ class ProfilesController < ApplicationController
       render action: :new
     end
     
+  end
+  
+  def edit
+    # Identify which user's Form we want to edit
+    @user = User.find( params[:user_id] )
+    # Load the profile for this user into the Form fields
+    @profile = @user.profile
   end
   
   private
