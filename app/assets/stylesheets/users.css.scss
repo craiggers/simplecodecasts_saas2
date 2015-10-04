@@ -1,3 +1,9 @@
+/* Users Show Page Styles */
+.user-show-avatar {
+  height: 128px;
+  width: 128px;
+}
+
 .profile-avatar {
   border: 2px solid #337ab7;
   border-radius: 20%;
@@ -33,4 +39,13 @@
 .well.contact-info {
   background-color: #5bc0de;
   border-color: #46b8da;
+}
+
+/* Users Index Page Styles */
+.user-index-avatar {
+  border-radius: 50%;
+}
+
+.well.white-bg {
+  background-color: white;
 }
